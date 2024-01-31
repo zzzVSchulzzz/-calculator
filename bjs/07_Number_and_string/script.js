@@ -122,7 +122,7 @@ document.querySelector('#btn_equa').addEventListener('click', function () {
 
 document.querySelector('#btn_equa').addEventListener('click', function () {    
     if (operation === 'sqr') {
-    const result = parseInt(inputWindow.value).Math.sqrt(lastOperand);
+    const result = Math.sqrt(lastOperand)
     operation = null;
     lastOperand = 0;
     inputWindow.value = result;
