@@ -115,16 +115,27 @@ function setAnswerField(value){
 
 //Функция для запроса минимального и максимального числа
 function answerNumberInterval() {
-	minValue = parseInt(prompt('Минимальное знание числа для игры', '0'))
-    maxValue = parseInt(prompt('Максимальное знание числа для игры', '100'))
+    let validInput = false
 
-    // Интервал должен быть из разных целых чисел
-    // Выводим предупреждение и повторно запрашиваем
-    if (minValue == maxValue) {
-    	alert('Вы загадали неправильно число')
-    	answerNumberInterval()
-	}
+    while(!validInput) {
+        const minValueInput = parseInt(prompt('Минимальное значение числа для игры', '0'), 10)
+        const maxValueInput = parseInt(prompt('Максимальное значение числа для игры', '100'), 10)
+
+        const isMinValueValid = Math.max(-999, Math.min(999, minValueInput))
+        const isMaxValueValid = Math.max(-999, Math.min(999, maxValueInput))
+
+        // Интервал должен быть из разных целых чисел
+        // Выводим предупреждение и повторно запрашиваем
+        if (!isNaN(isMinValueValid) && !isNaN(isMaxValueValid) && isMinValueValid < isMaxValueValid) {
+            minValue = isMinValueValid
+            maxValue = isMaxValueValid
+            validInput = true
+        }else{
+            alert('Вы загадали неправильное число')
+        }
+    }
 }
+	
 
 // Задаем первое предположение
 function resolveAnswerNumber() {
@@ -142,7 +153,7 @@ function winPhrasesRandom(){
 	}else if(randomNum === 3){
 		phrase = 'Easy peasy lemon squeezy!\n\u{1F60E}';
 	}else{
-		phrase = 'Easy peasy lemon squeezy!\n\u{1F60E}';
+		phrase = 'Easy peasy...\n\u{1F60E}';
 	}
 
 	return phrase
