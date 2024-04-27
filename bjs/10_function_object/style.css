@@ -1,0 +1,12 @@
+.container {
+    padding-top: 100px;
+}
+
+.card-header {
+    background-color: bisque;
+}
+
+.card.text-center {
+    border-color: burlywood;
+}
+
