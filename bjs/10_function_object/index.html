@@ -14,21 +14,30 @@
         <div class="col col-md-6 offset-md-3">
             <div class="card text-center">
                 <div class="card-header">
-                    <p class="m-0">Окно результатов генерации</p>
+                    <p class="m-0">Сгенерируй визитку настоящего ПРОФИ</p>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h3 class="card-title">Фамилия: <span id="surnameOutput">Генерация фамилии</span></h3>
-                            <h4>Имя: <span id="firstNameOutput">Иван</span></h4>
+                            <div class="person">
+                                <h3 class="card-title"><span id="surnameOutput">Фамилия</span></h3>
+                                <h4><span id="firstNameOutput">Имя</span></h4>
+                                <h4><span id="vathersNameOutput">Отчество</span></h4>
+                            </div>
+                            <h2><span id="professionOutput">Профессия</span></h2>
                             <p>
-                                <span id="genderOutput">Генерация пола</span>
-                                <span>, </span>
-                                <span id="birthYearOutput">Генерация года рождения</span>
+                                <span id="genderOutput">Пол</span>
+                                <span id="birthDateOutput">Дата</span>
+                                <span id="birthMonthOutput">Месяц</span>
+                                <span id="birthYearOutput">Год рождения</span>
                             </p>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="button-container text-center">
+                <button type="button" id="profiGen" class="btn btn-danger">ПРОФИ-генератор</button>
+                <button type="button" id="profiDel" class="btn btn-secondary">Очистить визитку</button>
             </div>
         </div>
     </div>
