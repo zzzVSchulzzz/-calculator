@@ -227,11 +227,9 @@ const personGenerator = {
               birthMonth = this.randomBirthMonth();
         
         let birthDate = this.randomBirthDate();
-        if((birthMonth === 'февраля' && birthDate > 28)) {
+        if(birthMonth === 'февраля' && birthDate > 28) {
             birthDate = 28;
-        }
-
-        if((birthMonth === 'апреля' || birthMonth === 'июня' || birthMonth === 'сентября' || birthMonth === 'ноября' && birthDate > 30)) {
+        } else if((birthMonth === 'апреля' || birthMonth === 'июня' || birthMonth === 'сентября' || birthMonth === 'ноября') && birthDate > 30) {
             birthDate = 30;
         }
 
