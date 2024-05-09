@@ -225,7 +225,16 @@ const personGenerator = {
         const gender = this.randomGender();
               birthYear = this.randomBirthYear();
               birthMonth = this.randomBirthMonth();
-              birthDate = this.randomBirthDate();
+        
+        let birthDate = this.randomBirthDate();
+        if((birthMonth === 'февраля' && birthDate > 28)) {
+            birthDate = 28;
+        }
+
+        if((birthMonth === 'апреля' || birthMonth === 'июня' || birthMonth === 'сентября' || birthMonth === 'ноября' && birthDate > 30)) {
+            birthDate = 30;
+        }
+
         this.person = {};
         this.person.birthDate = birthDate;
         this.person.birthMonth = birthMonth;
