@@ -28,7 +28,7 @@ const personGenerator = {
             "id_1": "Александр",
             "id_2": "Максим",
             "id_3": "Иван",
-            "id_4": "Артем",
+            "id_4": "Артём",
             "id_5": "Дмитрий",
             "id_6": "Никита",
             "id_7": "Михаил",
@@ -51,22 +51,6 @@ const personGenerator = {
             "id_8": "Карина",
             "id_9": "Ирина",
             "id_10": "Ева"
-        }
-    }`,
-
-    vathersNameJson: `{
-        "count": 10,
-        "list": {     
-            "id_1": "Алексее",
-            "id_2": "Александро",
-            "id_3": "Павло",
-            "id_4": "Сергее",
-            "id_5": "Георгие",
-            "id_6": "Октае",
-            "id_7": "Владимиро",
-            "id_8": "Дмитрие",
-            "id_9": "Андрее",
-            "id_10": "Ивано"
         }
     }`,
 
@@ -189,11 +173,35 @@ const personGenerator = {
     },
 
     randomVathersName: function(gender) {
-        if(gender === this.GENDER_MALE){
-            return this.randomValue(this.vathersNameJson) + "вич";
+        const firstName = this.randomValue(this.firstNameMaleJson);
+              lastChar = firstName.slice(-1);
+        let vathersName;
+
+        if (firstName === 'Михаил') {
+            if (gender === this.GENDER_MALE) {
+                vathersName = 'Михайлович';
+            } else {
+                vathersName = 'Михайловна';
+            }
+        } else if (gender === this.GENDER_MALE) {
+            if (['а', 'я'].includes(lastChar)) {
+                vathersName = firstName.slice(0, -1) + 'ич';
+            } else if (lastChar === 'й') {
+                vathersName = firstName.slice(0, -1) + 'евич';
+            } else {
+                vathersName = firstName + 'ович';
+            }
         } else {
-            return this.randomValue(this.vathersNameJson) + "вна";
+            if (['а', 'я'].includes(lastChar)) {
+                vathersName = firstName.slice(0, -1) + 'ична';
+            } else if (lastChar === 'й') {
+                vathersName = firstName.slice(0, -1) + 'евна';
+            } else {
+                vathersName = firstName + 'овна';
+            }
         }
+
+        return vathersName;
     },
 
     randomProfession: function(gender) {
